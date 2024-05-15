@@ -40,6 +40,13 @@ float4 PSMain(VSOutput vsOut) : SV_Target0
 color.x = vsOut.color.x;
 color.y = vsOut.color.y;
 color.z = vsOut.color.z;
-color.w = 1.0f;//今はαは気にしない
+color.w = 1.0f;
+
+//チェック
+/*color.x = (vsOut.pos.y % 100) / 100;
+color.y = (vsOut.pos.x%100)/100;
+color.z = (vsOut.color.y%200)/200;
+color.w = 1.0f;
+*/
 return color;
 }
