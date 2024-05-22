@@ -57,6 +57,9 @@ private:
 	Shader m_vertexShader;			//頂点シェーダー。
 	Shader m_pixelShader;				//ピクセルシェーダー。
 	PipelineState m_pipelineState;	//パイプラインステート。
-	SimpleVertex m_vertices[3];		//頂点データ。
+	//三角
+	//SimpleVertex m_vertices[3];		//頂点データ。
+	//四角
+	SimpleVertex m_vertices[4];
 };
 

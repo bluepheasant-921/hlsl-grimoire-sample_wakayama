@@ -23,13 +23,18 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 
 	// 定数バッファを作成
 	ConstantBuffer cb;
-
 	cb.Init(sizeof(Matrix));
+
+
 	// 三角形ポリゴンを定義
 	TrianglePolygon triangle;
 	triangle.Init(rootSignature);
 
+
+
 	// step-1 三角形ポリゴンにUV座標を設定
+	//三角
+	/*
 	triangle.SetUVCoord(
 		0,//頂点の番号
 		0.0f,//U座標
@@ -39,7 +44,21 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 	triangle.SetUVCoord(1, 0.5f, 0.0f);
 
 	triangle.SetUVCoord(2, 1.0f, 1.0f);
+	*/
 
+
+
+	//左右反転
+	/*
+	triangle.SetUVCoord(1, -0.5f, 0.0f);
+
+	triangle.SetUVCoord(2, -1.0f, 1.0f);
+	*/
+
+	//四角形
+	triangle.SetUVCoord(0, 0.0f, 1.0f);
+
+	
 	// step-2 テクスチャをロード
 	Texture tex;
 	tex.InitFromDDSFile(L"Assets/image/sample_00.dds");

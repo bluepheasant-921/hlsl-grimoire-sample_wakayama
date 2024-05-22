@@ -62,7 +62,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 		*/
 
 		//回転
-		mWorld1.MakeTranslation(sin(f / 100.0f), 0.0f, 0.0f);
+		mWorld1.MakeTranslation(sin(f / 100.0), 0.0, 0.0);
 		Matrix mWorld2;
 		mWorld2.MakeRotationZ(f / 100.0f);
 		Matrix mWorld = mWorld1 * mWorld2;

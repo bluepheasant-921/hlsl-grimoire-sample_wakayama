@@ -23,7 +23,10 @@ void TrianglePolygon::Draw(RenderContext& rc)
 	//インデックスバッファを設定。
 	rc.SetIndexBuffer(m_indexBuffer);
 	//ドローコール
-	rc.DrawIndexed(3);
+	// 三角
+	//rc.DrawIndexed(3);
+	//四角
+	rc.DrawIndexed(6);
 }
 void TrianglePolygon::LoadShaders()
 {
@@ -64,6 +67,8 @@ void TrianglePolygon::InitPipelineState(RootSignature& rs)
 }
 void TrianglePolygon::InitVertexBuffer()
 {
+	//三角
+	/*
 	m_vertices[0] = {
 			{-0.5f, -0.5f, 0.0f},
 			{ 1.0f, 0.0f, 0.0f },
@@ -79,6 +84,29 @@ void TrianglePolygon::InitVertexBuffer()
 			{ 0.0f, 0.0f, 1.0f },
 			{1.0f, 0.0f}
 	};
+	*/
+
+
+	m_vertices[0] = {//左下
+			{-0.5f, -0.5f, 0.0f},
+			{ 1.0f, 0.0f, 0.0f },
+			{ 0.0f, 1.0f }
+	};
+	m_vertices[1] = {//左上
+			{ -0.5f, 0.5f, 0.0f },
+			{ 0.0f, 1.0f, 0.0f },
+			{ 0.0f, 0.0f }
+	};
+	m_vertices[2] = {//右上
+			{ 0.5f, 0.5f, 0.0f },
+			{ 0.0f, 0.0f, 1.0f },
+			{1.0f, .0f}
+	};
+	m_vertices[3] = {//右下
+			{ 0.5f, -0.5f, 0.0f },
+			{ 0.0f, 0.0f, 1.0f },
+			{1.0f, 1.0f}
+	};
 
 	m_vertexBuffer.Init(sizeof(m_vertices), sizeof(m_vertices[0]));
 	m_vertexBuffer.Copy(m_vertices);
@@ -92,10 +120,18 @@ void TrianglePolygon::SetUVCoord(int vertNo, float U, float V)
 }
 void TrianglePolygon::InitIndexBuffer()
 {
+	//三角
+	/*
 	unsigned short indices[] = {
 		0,1,2
 	};
-	
+	*/
+
+	//四角
+	unsigned short indices[] = {
+		0,1,3,1,2,3
+	};
+
 	m_indexBuffer.Init(sizeof(indices), 2);
 	m_indexBuffer.Copy(static_cast<uint16_t*>(indices));
 
