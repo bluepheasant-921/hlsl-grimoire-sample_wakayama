@@ -56,6 +56,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 	*/
 
 	//四角形
+	//triangle.SetUVCoord(0, 0.0f, 1.0f);
 	triangle.SetUVCoord(0, 0.0f, 1.0f);
 
 	

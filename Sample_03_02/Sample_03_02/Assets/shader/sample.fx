@@ -40,6 +40,9 @@ float4 PSMain(VSOutput vsOut) : SV_Target0
 	g_sampler,//第一引数はサンプラー。気にしなくてよい
 	vsOut.uv//第二引数はUV座標
 	);
-return texColor;
+//return texColor;
+float4 outColor = texColor;
+outColor.rgb = lerp(vsOut.color, texColor.rgb, 0.25f);
+return outColor;
 //return float4(vsOut.color, 1.0f);
 }
