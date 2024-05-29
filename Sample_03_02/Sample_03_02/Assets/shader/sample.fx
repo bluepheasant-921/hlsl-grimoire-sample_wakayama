@@ -28,7 +28,7 @@ VSOutput VSMain(VSInput In)
 	VSOutput vsOut = (VSOutput)0;
 	vsOut.pos = mul(g_worldMatrix, In.pos);
 	vsOut.uv = In.uv;
-	vsOut.color = In.color; //
+	vsOut.color = In.color; 
 	return vsOut;
 }
 

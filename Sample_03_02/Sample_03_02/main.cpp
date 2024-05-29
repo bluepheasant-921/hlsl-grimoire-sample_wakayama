@@ -56,10 +56,11 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 	*/
 
 	//四角形
-	//triangle.SetUVCoord(0, 0.0f, 1.0f);
 	triangle.SetUVCoord(0, 0.0f, 1.0f);
+	triangle.SetUVCoord(1, 0.0f, 0.0f);
+	triangle.SetUVCoord(2, -1.0f, 0.0f);
+	triangle.SetUVCoord(3, -1.0f, 1.0f);
 
-	
 	// step-2 テクスチャをロード
 	Texture tex;
 	tex.InitFromDDSFile(L"Assets/image/sample_00.dds");
