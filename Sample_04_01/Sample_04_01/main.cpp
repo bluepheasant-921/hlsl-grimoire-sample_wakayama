@@ -23,6 +23,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
     // 使用するシェーダーファイルパスを設定する
     initData.m_fxFilePath = "Assets/shader/sample.fx";
 
+
     // step-2 初期化情報を使ってモデル表示処理を初期化する
     Model charaModel;
     charaModel.Init(initData);
