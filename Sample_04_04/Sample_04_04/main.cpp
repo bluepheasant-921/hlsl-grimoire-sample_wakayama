@@ -19,6 +19,8 @@ struct Light
 {
     DirectionLight directionLight;  // ディレクションライト
     Vector3 eyePos;                 // 視点の位置
+
+    
 };
 
 ///////////////////////////////////////////////////////////////////
