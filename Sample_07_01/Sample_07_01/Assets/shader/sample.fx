@@ -73,7 +73,7 @@ float4 PSMain(SPSIn psIn) : SV_Target0
     float3 lig = 0;
 
     // ディレクションライト4本分の拡散反射光を計算する
-    for(int ligNo = 0; ligNo < NUM_DIRECTIONAL_LIGHT; ligNo++)
+    for (int ligNo = 0; ligNo < NUM_DIRECTIONAL_LIGHT; ligNo++)
     {
         ///////////////////////////////////////////////////////////
         // Lambert拡散反射モデルを使って拡散反射光を計算する
@@ -85,6 +85,7 @@ float4 PSMain(SPSIn psIn) : SV_Target0
         float3 diffuse = directionalLight[ligNo].color * NdotL;
 
         // step-1 拡散反射光を正規化する
+        diffuse /= 3.1415926f;
 
         // 拡散反射光を反射光に足し算する
         lig += diffuse;
