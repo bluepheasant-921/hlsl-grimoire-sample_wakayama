@@ -39,33 +39,36 @@ PSInput VSMain(VSInput In)
 float4 PSMain(PSInput In) : SV_Target0
 {
 	float4 color = colorTexture.Sample(Sampler, In.uv);
+	float t = (int)fmod(In.pos.y, 64.0f);
+	if (t - negaRate * 100 < 0)
+	{
 
-	/*
-	// step-1 画像を徐々にネガポジ反転させていく
-	float3 negaColor;
-	negaColor.x = 1.0f - color.x;
-	negaColor.y = 1.0f - color.y;
-	negaColor.z = 1.0f - color.z;
+		/*
+		// step-1 画像を徐々にネガポジ反転させていく
+		float3 negaColor;
+		negaColor.x = 1.0f - color.x;
+		negaColor.y = 1.0f - color.y;
+		negaColor.z = 1.0f - color.z;
 
-	// ネガポジ率を使って徐々にネガポジ画像にしていく
-	color.xyz = lerp( color, negaColor, negaRate);
-	*/
+		// ネガポジ率を使って徐々にネガポジ画像にしていく
+		color.xyz = lerp( color, negaColor, negaRate);
+		*/
 
-	//課題(グレースケールになる、徐々に変化)
+		//課題(グレースケールになる、徐々に変化)
 
-	float3 negaColor;
-	negaColor.x = 1.0f - color.x;
-	negaColor.y = 1.0f - color.y;
-	negaColor.z = 1.0f - color.z;
+		float3 negaColor;
+		negaColor.x = 1.0f - color.x;
+		negaColor.y = 1.0f - color.y;
+		negaColor.z = 1.0f - color.z;
 
-	//モノクロ（グレースケール）
-	//ピクセルの明るさを計算する
-	float Y = 0.299f * color.r + 0.587f * color.g + 0.114f * color.b;
-	//明るさの値をRGBに設定して、モノクロカラーを求める
-	float3 monochromeColor = float3(Y, Y, Y);
-	//ここまでモノクロ計算
+		//モノクロ（グレースケール）
+		//ピクセルの明るさを計算する
+		float Y = 0.299f * color.r + 0.587f * color.g + 0.114f * color.b;
+		//明るさの値をRGBに設定して、モノクロカラーを求める
+		float3 monochromeColor = float3(Y, Y, Y);
+		//ここまでモノクロ計算
 
-	color.xyz = lerp(color, monochromeColor, negaRate);
-
+		color.xyz = lerp(color, monochromeColor, negaRate);
+	}
 	return color;
 }

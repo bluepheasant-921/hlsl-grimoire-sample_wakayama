@@ -74,7 +74,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 			monochromeRate = 1.0f;
 		}
 		*/
-
+		
 		//課題（点滅）
 		/*
 		if (monochromeRate == 0)
