@@ -33,9 +33,10 @@ float4 PSMain(PSInput In) : SV_Target0
 
     // step-7 ピクセルカラーをモノクロ化する
     float Y  =  0.299f * color.r + 0.587f * color.b + 0.114f * color.b;
+    //赤のみ
     color.r = Y;
-    color.g = Y;
-    color.b = Y;
+    color.g = 0;
+    color.b = 0;
 
     return color;
 }
