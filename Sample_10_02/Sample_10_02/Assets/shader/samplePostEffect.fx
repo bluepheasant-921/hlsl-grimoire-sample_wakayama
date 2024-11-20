@@ -58,11 +58,29 @@ float4 PSMain(PSInput In) : SV_Target0
 
 
 	 //ソラリゼーション
+	/*
 	color.r = 4 * ((color.r - 0.5) * (color.r - 0.5));
 	color.g = 4 * ((color.g - 0.5) * (color.g - 0.5));
 	color.b = 4 * ((color.b - 0.5) * (color.b - 0.5));
+	*/
 
-	//
+	//ポスタリゼーション
+	for (int i = 0; i < 5; i++)
+	{
+		if (color.r > 0.25 * i && color.r <= 0.25 * (i + 1))
+		{
+			color.r = 0.25 * i;
+		}
+		if (color.g > 0.25 * i && color.g <= 0.25 * (i + 1))
+		{
+			color.g = 0.25 * i;
+		}
+		if (color.b > 0.25 * i && color.b <= 0.25 * (i + 1))
+		{
+			color.b = 0.25 * i;
+		}
+
+	}
 
 	  return color;
 }
