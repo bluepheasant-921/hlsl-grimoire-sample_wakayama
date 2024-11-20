@@ -32,7 +32,15 @@ float4 PSMain(PSInput In) : SV_Target0
 	float4 color = sceneTexture.Sample(Sampler, In.uv);
 
 	// step-7 ピクセルカラーをモノクロ化する
-	
+
+	//モノクロ
+	/*
+	float Y = 0.299f * color.r + 0.587f * color.b + 0.114f * color.b;
+	color.r = Y;
+	color.g = Y;
+	color.b = Y;
+	*/
+
 	//赤のみ
 	/*
 	* float Y = 0.299f * color.r + 0.587f * color.b + 0.114f * color.b;
@@ -40,10 +48,21 @@ float4 PSMain(PSInput In) : SV_Target0
 	 color.g = 0;
 	 color.b = 0;
 	 */
+
 	 //反転
+	/*
 	 color.r = 1 - color.r;
 	 color.g = 1 - color.g;
 	 color.b = 1 - color.b;
+	 */
 
-	 return color;
+
+	 //ソラリゼーション
+	color.r = 4 * ((color.r - 0.5) * (color.r - 0.5));
+	color.g = 4 * ((color.g - 0.5) * (color.g - 0.5));
+	color.b = 4 * ((color.b - 0.5) * (color.b - 0.5));
+
+	//
+
+	  return color;
 }
