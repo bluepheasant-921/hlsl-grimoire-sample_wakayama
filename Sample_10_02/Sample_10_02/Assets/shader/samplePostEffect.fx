@@ -65,6 +65,7 @@ float4 PSMain(PSInput In) : SV_Target0
 	*/
 
 	//ポスタリゼーション
+
 	for (int i = 0; i < 5; i++)
 	{
 		if (color.r > 0.25 * i && color.r <= 0.25 * (i + 1))
